@@ -78,11 +78,13 @@ Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
 
 What is the runtime complexity of each function?
 
-Top100()
+### Top100()
+
 Runtime complexity: O(N) N being just our top 100 elements.
 
 
-HandleStreamRequests(ipname)
+### HandleStreamRequests(ipname)
+
 All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
