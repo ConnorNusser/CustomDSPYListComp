@@ -85,7 +85,7 @@ Runtime complexity: O(N) N being just our top 100 elements.
 
 ### request_handled(ipname)
 
-All of the runtime complexities for Log(N) are relative to just the top 100 so technically its o(log2(100)) or worst case 7 times worse than o(1)
+Note: All of the runtime complexities for O(Log(N)) are relative to just the top 100 so technically its o(log2(100)) or worst case 7 times worse than o(1)
 
 Though I think the actual operations required (or at least the operations in my O(1) constant system required much more actual operations. So I'd imagine 
 if you were to test the two going through a couple million numbers they'd be about the same.   
