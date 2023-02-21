@@ -1,5 +1,19 @@
 # WithPulley Ip Address Mapping Project
 
+
+## How to Run
+
+
+```js
+const sizeLimit = require('size-limit')
+const filePlugin = require('@size-limit/file')
+const webpackPlugin = require('@size-limit/webpack')
+
+sizeLimit([filePlugin, webpackPlugin], [filePath]).then(result => {
+  result //=> { size: 12480 }
+})
+```
+
 ## How It Works
 
 The primary components of our system are the following:
