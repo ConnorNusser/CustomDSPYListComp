@@ -86,6 +86,7 @@ HandleStreamRequests(ipname)
 All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
 HandleStreamRequests is comprised of essentially four functions.
+    
     * Inserting New Element not in Array: Runtime O(1)
     
     * Adding Element to End of Array (moveNextAppend): Runtime O(1)
