@@ -126,3 +126,4 @@ Additionally, my other solution (this one) is O(1) pretty much all the time and 
 
 If we had to get say top1000() or top10000() I'd probably use my other method.
 
+I also had a fancy idea for using a red/black tree and something else. Can't really remember though to be honest!
