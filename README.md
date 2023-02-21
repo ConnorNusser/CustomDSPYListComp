@@ -16,7 +16,7 @@ Value: [IpHits, Reference to the IpBucket Object where its stored within our Arr
 
 General Concept:
 We have an array that stores all of our Top 100 Ips.
-When a new IpRequest comes through it checks to see if the Ip Exists within our array already. If it does it updates its location in the Array in o(1) time because we have the stored IpBucketObject. The reason for not just using an index for example is if insertions occur, deletions occur the index will not neccesarily correspond to the right element(you can Use an indexOffset which I have for our iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time, (most expected operations that we'll have within our system will likely be jumping to the .Next bucket) meaning most updates will be O(1) 
+When a new IpRequest comes through it checks to see if the Ip Exists within our array already. If it does it updates its location in the Array in o(1) time because we have the stored IpBucketObject. The reason for not just using an index for example is if (insertions occur or deletions occur) the index will not neccesarily correspond to the right element (you can Use an indexoffset which I have for our iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time, (most expected operations that we'll have within our system will likely be jumping to the .Next bucket) meaning most updates will be O(1) 
 
 
 
