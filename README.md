@@ -78,14 +78,14 @@ Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
 
 What is the runtime complexity of each function?
 
-### Top100()
+### Top()
 
 Runtime complexity: O(N) N being just our top 100 elements.
 
 
 ### request_handled(ipname)
 
-All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
+All of the runtime complexities for Log(N) are relative to just the top 100 so technically its o(Log(100)) or o(2) 
 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
 
@@ -103,15 +103,20 @@ HandleStreamRequests is comprised of essentially four functions.
 ### What would you do differently if you had more time?
 Another thing I thought of adding if this was integrated into a live system is you could use multiple channels, (my mention of  concurrency). The base problem is, if you push elements randomly into the channel it'll be hard to know what the "top 100" is because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100.
 
-But what I would do is divide the IpAddresses into sets
+But what I would do is divide the IpAddresses into sets using the modulo of the channel number so example
+if we have 3 channels IpAddress % 3 
 
 So Example 
 
-Ip "00.00.00" to "22.22.22" would go to channel 1
+Ip "00.00.00.01" would go to channel 1 as the remainder would be one 
 
-Ip "22.22.22" to "44.44.44" would go to channel 2
+Ip "00.00.00.02" would go to channel 2 as the remainder would be two
 
-Ip "44.44.44" to "66.66.66" would go to channel 3
+Ip "00.00.00.03" would go to channel 3 because it would have a remainder of 0
+
+Ip "00.00.00.04" would go to channel 1 as the remainder would be one
+
+etc etc etc
 
 And then when top 100 is called you call all Top 100 Elements from channel 1, 2 and 3. 
 
@@ -122,7 +127,7 @@ This new minimum value would inevitably also speed up each channel because now y
 What other approaches did you decide not to pursue?
 My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O(1) runtime for everything but has really bad space complexity. It has a space complexity relative to the highest IpCount(in top 100) - min IpCount (in top 100). 
 I thought generally the space complexity could get problematic. Say a single user was making a huge number of requests or intentionally messing with the system it might create a space complexity of maybe 1 Million or something over the day.
-Additionally, my other solution (this one) is O(1) pretty much all the time and O(log(n)) but with only 100 items O(10) isn't that big of a deal in my opinion. 
+Additionally, my other solution (this one) is O(1) pretty much all the time and O(log(n)) or with 100 items o(2) isn't that big of a deal in my opinion. 
 
 If we had to get say top1000() or top10000() I'd probably use my other method.
 
