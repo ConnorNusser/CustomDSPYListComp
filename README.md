@@ -4,11 +4,15 @@
 
 The primary components of our system are the following:
 
-1: An Array of Custom Objects called IpBucket
+1: An Array with custom ibjects called IpBucket
 
-2: IpBucket which has a few properties, 
-   two pointers so it can reference its next node and previous 
+2: IpBucket which has a few properties,
+
+   Two pointers so it can reference its next node and previous 
+   
    A set to contain all elements of the same IpCount in the same object
+   
+   The current value or ipcount for that bucket
 
 3: A dictionary to store our IpAddresses 
 Key: IpName
