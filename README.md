@@ -78,7 +78,7 @@ Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
 
 What is the runtime complexity of each function?
 
-### Top()
+### Top100()
 
 Runtime complexity: O(N) N being just our top 100 elements.
 
