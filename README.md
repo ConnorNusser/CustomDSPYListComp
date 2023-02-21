@@ -2,22 +2,20 @@
 
 ## How It Works
 
-1. Size Limit contains a CLI tool, 3 plugins (`file`, `webpack`, `time`)
-   and 3 plugin presets for popular use cases (`app`, `big-lib`, `small-lib`).
-   A CLI tool finds plugins in `package.json` and loads the config.
-2. If you use the `webpack` plugin, Size Limit will bundle your JS files into
-   a single file. It is important to track dependencies and webpack polyfills.
-   It is also useful for small libraries with many small files and without
-   a bundler.
-3. The `webpack` plugin creates an empty webpack project, adds your library
-   and looks for the bundle size difference.
-4. The `time` plugin compares the current machine performance with that of
-   a low-priced Android devices to calculate the CPU throttling rate.
-5. Then the `time` plugin runs headless Chrome (or desktop Chrome if it’s
-   available) to track the time a browser takes to compile and execute your JS.
-   Note that these measurements depend on available resources and might
-   be unstable. [See here](https://github.com/mbalabash/estimo/issues/5)
-   for more details.
+The primary components of our system are the following:
+
+1: An Array of Custom Objects called IpBucket
+2: IpBucket which has a few properties, 
+   two pointers so it can reference its next node and previous 
+   A set to contain all elements of the same IpCount in the same object
+3: A dictionary to store our IpAddresses 
+Key: IpName
+Value: [IpHits, Reference to the IpBucket Object where its stored within our Array System]
+
+General Concept:
+We have an array that stores all of our Top 100 Ips.
+When a new IpRequest comes through it checks to see if the Ip Exists within our array already. If it does it updates its location in the Array in o(1) time because we have the stored IpBucketObject. The reason for not just using an index for example is if insertions occur, deletions occur the index will not neccesarily correspond to the right element(you can Use an indexOffset which I have for our iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time, (most expected operations that we'll have within our system will likely be jumping to the .Next bucket) meaning most updates will be O(1) 
+
 
 
 ## Usage
