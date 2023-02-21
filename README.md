@@ -92,7 +92,7 @@ if you were to test the two going through a couple million numbers they'd be abo
 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
 
-HandleStreamRequests is comprised of essentially four functions.
+request_handled is comprised of essentially four functions.
     
     * Inserting New Element not in Array: Runtime O(1)
     
