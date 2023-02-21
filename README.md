@@ -52,15 +52,15 @@ The primary components of our system are the following:
 
 2: IpBucket which has a few properties,
 
-   Two pointers so it can reference its next node and previous 
+   * Two pointers so it can reference its next node and previous 
    
-   A set to contain all elements of the same IpCount in the same object
+   * A set to contain all elements of the same IpCount in the same object
    
-   The current value or ipcount for that bucket
+   * The current value or ipcount for that bucket
 
 3: A dictionary to store our IpAddresses 
-Key: IpName
-Value: [IpHits, Reference to the IpBucket Object where its stored within our Array System]
+ * Key: IpName
+ * Value: [IpHits, Reference to the IpBucket Object where its stored within our Array System]
 
 General Concept:
 We have an array that stores all of our Top 100 Ips.
