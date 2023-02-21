@@ -75,9 +75,10 @@ After that When a new IpRequest comes through it checks to see if the Ip Exists 
 
 
 ### How would you test this to ensure it’s working correctly?
-I'd probably alter TextFilterCreation.py where it could be called with specific inputs and then get an actual return value from our Main Project
-You could input certain IpHandles and the count for those IpHandles Ex:
-Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
+I'd probably alter TextFilterCreation.py where it could be called with specific inputs and then get an actual return value from our Main Project.
+
+You could input certain IpHandles and the count for those IpHandles and then evalute whether the returned count is equivalent.
+Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
 
 What is the runtime complexity of each function?
 Top100()
@@ -114,4 +115,5 @@ My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O
 I thought generally the space complexity could get problematic. Say a single user was making a huge number of requests or intentionally messing with the system it might create a space complexity of maybe 1 Million or something over the day.
 Additionally, my other solution (this one) is O(1) pretty much all the time and O(log(n)) but with only 100 items O(10) isn't that big of a deal in my opinion. 
 
+If we had to get say top1000() or top10000() I'd probably use my other method.
 
