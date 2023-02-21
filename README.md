@@ -63,11 +63,7 @@ The primary components of our system are the following:
  * Value: [IpHits, Reference to the IpBucket Object where its stored within our Array System]
 
 General Concept:
-We have an array that stores all of our Top 100 Ips.
-<small>
-First: It just fills the array with Top 100 Ips After when a new IpRequest comes through it checks if the Ip Exists within our array. If it doesn't exist within our array or meet a minimum value, its continues on. If it does it updates its location in the Array in O(1) time. The reason because we have the stored IpBucketObject. Note: The reason for not just using an index for example, is if (insertions occur or deletions occur) the index will not neccesarily correspond to the right element (you can use an indexoffset which I have for anohter iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time. Most of the expected operations within our system will likely be jumping to the .Next meaning most updates will be O(1). 
-<small/>
-
+We have an array that stores all of our Top 100 Ips. First, It just fills the array with the top 100 Ips. Afterward, when a new IpRequest comes through it checks whether the Ip Exists within our array. If it doesn't exist within our array or meet a minimum value, it continues. If it does exist. It updates its location in the Array in O(1) time. The reason because we have the stored IpBucketObject. Note: The reason for not just using an index, for example, is if (insertions occur or deletions occur) the index will not necessarily correspond to the right element (you can use an index offset which I have for another iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an index lookup, so O(1) time. Most of the expected operations within our system will likely be jumping to the .Next means most updates will be O(1). 
 
 
 ## Question Section
@@ -99,7 +95,7 @@ HandleStreamRequests is comprised of essentially four functions.
     
     
 ### What would you do differently if you had more time?
-Another thing I thought of adding if this was a real world scenario is you could use multiple channels, (my mention of  concurrency). The base problem being, if you push elements randomly into the channel it'll be hard to know whats the "top 100" because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100. 
+Another thing I thought of adding if this was integrated into a live system is you could use multiple channels, (my mention of  concurrency). The base problem is, if you push elements randomly into the channel it'll be hard to know what the "top 100" is because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100.
 
 But what I would do is divide the IpAddresses into sets
 
