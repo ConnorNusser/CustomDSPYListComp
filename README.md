@@ -99,7 +99,8 @@ HandleStreamRequests is comprised of essentially four functions.
     
     
 ### What would you do differently if you had more time?
-Another thing I thought of adding if this was a real world scenario is you could use multiple channels, (my mention of  concurrency). With the base problem being, If you push elements randomly into the channel it'll be hard to know whats the "top 100" because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100. 
+Another thing I thought of adding if this was a real world scenario is you could use multiple channels, (my mention of  concurrency). The base problem being, if you push elements randomly into the channel it'll be hard to know whats the "top 100" because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100. 
+
 But what I would do is divide the IpAddresses into sets
 
 So Example 
@@ -110,9 +111,11 @@ Ip "22.22.22" to "44.44.44" would go to channel 2
 
 Ip "44.44.44" to "66.66.66" would go to channel 3
 
-And then when top 100 is called you call all Top 100 Elements from channel 1, 2 and 3. Sort them, grab the top 100 of the channels and then return back to each channel a new minimum value of Top 100. This new minimum value would inevitably also speed up each channel because now you would only need to insertions relative to the most recent real top 100, vs before the top 100 being localized to the channel.
+And then when top 100 is called you call all Top 100 Elements from channel 1, 2 and 3. 
 
-![Img](https://www.researchgate.net/publication/344834843/figure/fig1/AS:1021716486705153@1620607601683/Perceptron-neuron-with-three-input-variables-and-a-single-output-0-or-1-The-inputs-are.png)
+Sort them, grab the top 100 of the channels and then return back to each channel a new minimum value of Top 100. 
+
+This new minimum value would inevitably also speed up each channel because now you would only need to  do insertions relative to the most recent real top 100, vs before the top 100 being localized to the channel.
 
 What other approaches did you decide not to pursue?
 My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O(1) runtime for everything but has really bad space complexity. It has a space complexity relative to the highest IpCount(in top 100) - min IpCount (in top 100). 
