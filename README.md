@@ -98,9 +98,12 @@ request_handled is comprised of essentially four functions.
     
     * Adding Element to End of Array (moveNextAppend): Runtime O(1)
     
-    * Moving to the next pointer (moveNextArrow): Worst Case O(log(n)) N being just our top 100 elements, most cases O(1) only when a previous node needs to be removed will it be O(log(n))
+    * Moving to the next pointer (moveNextArrow): Worst Case O(log(n)) N being just our top 100 elements, 
     
-    * Moving to the next pointer (moveNextSquare): Worst Case O(log(n)) N being just our top 100 elements, though in cases where its only element in the bucket it'll be O(1)
+    most cases O(1) only when a previous node needs to be removed will it be O(log(n))
+    
+    * Moving to the next pointer (moveNextSquare): Worst Case O(log(n)) N being just our top 100 elements, 
+    though in cases where its only element in the bucket it'll be O(1)
     
     
 ### What would you do differently if you had more time?
