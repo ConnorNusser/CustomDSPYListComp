@@ -101,9 +101,13 @@ HandleStreamRequests is comprised of essentially four functions.
 ### What would you do differently if you had more time?
 Another thing I thought of adding if this was a real world scenario is you could use multiple channels, (my mention of  concurrency). With the base problem being, If you push elements randomly into the channel it'll be hard to know whats the "top 100" because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100. 
 But what I would do is divide the IpAddresses into sets
+
 So Example 
+
 Ip "00.00.00" to "22.22.22" would go to channel 1
+
 Ip "22.22.22" to "44.44.44" would go to channel 2
+
 Ip "44.44.44" to "66.66.66" would go to channel 3
 
 And then when top 100 is called you call all Top 100 Elements from channel 1, 2 and 3. Sort them, grab the top 100 of the channels and then return back to each channel a new minimum value of Top 100. This new minimum value would inevitably also speed up each channel because now you would only need to insertions relative to the most recent real top 100, vs before the top 100 being localized to the channel.
