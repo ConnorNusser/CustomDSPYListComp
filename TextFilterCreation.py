@@ -4,6 +4,8 @@ import csv
 ipSet = set()
 ipArr = []
 start_time = time.time()
+
+# Generates the initial number of ips
 for i in range(2 * 10 ** 5):
   ip = '{}.{}.{}.{}'.format(*__import__('random').sample(range(0,255),4))
   request_HandlerString = 'request_handle("%s")' % ip
@@ -13,6 +15,7 @@ for i in range(2 * 10 ** 5):
   ipArr.append(request_HandlerString)
   
 endArr = []
+# this then cycles through the same list to mimic people going to the same site every day
 for i in range(10 ** 6):
     random_element = random.randrange(0, len(ipArr))
     top100_flag = random.randrange(0, 100)
