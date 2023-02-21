@@ -66,8 +66,8 @@ General Concept:
 We have an array that stores all of our Top 100 Ips.
 First: It just fills the array with Top 100 Ips
 
-After that, when a new IpRequest comes through it checks to see if the Ip Exists within our array already. 
-If it doesn't, or it's not above our minimum top ip value it just continues on. If it does it updates its location in the Array in O(1) time because we have the stored IpBucketObject. The reason for not just using an index for example, is if (insertions occur or deletions occur) the index will not neccesarily correspond to the right element (you can use an indexoffset which I have for our iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time, (most expected operations that we'll have within our system will likely be jumping to the .Next bucket) meaning most updates will be O(1) 
+After that, when a new IpRequest comes through it checks if the Ip Exists within our array. 
+If it doesn't exist within our array or meet a minimum value, its continues on. If it does it updates its location in the Array in O(1) time. The reason because we have the stored IpBucketObject. Note: The reason for not just using an index for example, is if (insertions occur or deletions occur) the index will not neccesarily correspond to the right element (you can use an indexoffset which I have for anohter iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an Index Lookup, so O(1) time. Most of the expected operations within our system will likely be jumping to the .Next meaning most updates will be O(1). 
 
 
 
