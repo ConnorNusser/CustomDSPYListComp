@@ -77,21 +77,22 @@ You could input certain IpHandles and the count for those IpHandles and then eva
 Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
 
 What is the runtime complexity of each function?
+
 Top100()
 Runtime complexity: O(N) N being just our top 100 elements.
 
 
-### HandleStreamRequests(ipname)
-#### All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
+HandleStreamRequests(ipname)
+All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
 HandleStreamRequests is comprised of essentially four functions.
-    Inserting New Element not in Array: Runtime O(1)
+    * Inserting New Element not in Array: Runtime O(1)
     
-    Adding Element to End of Array (moveNextAppend): Runtime O(1)
+    * Adding Element to End of Array (moveNextAppend): Runtime O(1)
     
-    Moving to the next pointer (moveNextArrow): Worst Case O(log(n)) N being just our top 100 elements, most cases O(1) only when a previous node needs to be removed will it be O(log(n))
+    * Moving to the next pointer (moveNextArrow): Worst Case O(log(n)) N being just our top 100 elements, most cases O(1) only when a previous node needs to be removed will it be O(log(n))
     
-    Moving to the next pointer (moveNextSquare): Worst Case O(log(n)) N being just our top 100 elements, though in cases where its only element in the bucket it'll be O(1)
+    * Moving to the next pointer (moveNextSquare): Worst Case O(log(n)) N being just our top 100 elements, though in cases where its only element in the bucket it'll be O(1)
     
     
 ### What would you do differently if you had more time?
