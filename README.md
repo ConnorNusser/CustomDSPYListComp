@@ -12,6 +12,15 @@ git clone https://github.com/ConnorNusser/withPulleyProj.git
 cd withPulleyProj
 Python3 withPulley.py
 ```
+First method to generate requests is within 
+```py
+def main(argv):
+    #Example
+    request_handle("11.12.14")
+```
+
+The better option though is: 
+
 ### To Generate a massive list of randomly constructed ips
 ```py
 Python3 TextFilterCreation.py
