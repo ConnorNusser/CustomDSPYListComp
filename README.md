@@ -12,6 +12,27 @@ git clone https://github.com/ConnorNusser/withPulleyProj.git
 cd withPulleyProj
 Python3 withPulley.py
 ```
+### To Generate a massive list of randomly constructed ips
+```py
+Python3 TextFilterCreation.py
+```
+Note: top100() is randomly generated and thrown in with the inputs
+
+Additionally you can add in specific values/different max ip values by manipulating the request handle string
+```py
+knownipOne = 'request_handle("10.20.40.60")'
+knownipTwo = 'request_handle("5.10.15.20")'
+knownipThree = 'request_handle("00.00.11.20")'
+
+
+for i in range(225):
+    endArr.append(knownipOne)
+for i in range(360):
+    endArr.append(knownipTwo)    
+for i in range(90):
+    endArr.append(knownipThree)
+``` 
+
 
 ## How It Works
 
