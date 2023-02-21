@@ -48,7 +48,7 @@ for i in range(90):
 
 The primary components of our system are the following:
 
-1: An Array with custom ibjects called IpBucket
+1: An Array with custom objects called IpBucket
 
 2: IpBucket which has a few properties,
 
