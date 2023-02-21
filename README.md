@@ -85,7 +85,10 @@ Runtime complexity: O(N) N being just our top 100 elements.
 
 ### request_handled(ipname)
 
-All of the runtime complexities for Log(N) are relative to just the top 100 so technically its o(log(100)) 
+All of the runtime complexities for Log(N) are relative to just the top 100 so technically its o(log2(100)) or worst case 7 times worse than o(1)
+
+Though I think the actual operations required (or at least the operations in my O(1) constant system required much more actual operations. So I'd imagine 
+if you were to test the two going through a couple million numbers they'd be about the same.   
 
 Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
 
@@ -127,7 +130,7 @@ This new minimum value would inevitably also speed up each channel because now y
 What other approaches did you decide not to pursue?
 My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O(1) runtime for everything but has really bad space complexity. It has a space complexity relative to the highest IpCount(in top 100) - min IpCount (in top 100). 
 I thought generally the space complexity could get problematic. Say a single user was making a huge number of requests or intentionally messing with the system it might create a space complexity of maybe 1 Million or something over the day.
-Additionally, my other solution (this one) is O(1) pretty much all the time and O(log(n)) with 100 items  this isn't that big of a deal in my opinion. 
+Additionally, my other solution (this one) is O(1) pretty much all the time and O(log2(n)) with 100 items a runtime of 6-7 times worst than O(1) doesn't seem too terrible. 
 
 If we had to get say top1000() or top10000() I'd probably use my other method.
 
