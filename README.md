@@ -72,3 +72,46 @@ After that When a new IpRequest comes through it checks to see if the Ip Exists 
 
 ## Question Section
 
+
+
+### How would you test this to ensure it’s working correctly?
+I'd probably alter TextFilterCreation.py where it could be called with specific inputs and then get an actual return value from our Main Project
+You could input certain IpHandles and the count for those IpHandles Ex:
+Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
+
+What is the runtime complexity of each function?
+Top100()
+Runtime complexity: O(N) N being just our top 100 elements.
+
+
+### HandleStreamRequests(ipname)
+#### All of the runtime complexities for Log(N) are relative to just the top 100 so technically its O(Log(100)) or O(10) 
+Runtime complexity: Worst Case O(log(n)) N being just our top 100 elements. Best Case O(1)
+HandleStreamRequests is comprised of essentially four functions.
+    Inserting New Element not in Array: Runtime O(1)
+    
+    Adding Element to End of Array (moveNextAppend): Runtime O(1)
+    
+    Moving to the next pointer (moveNextArrow): Worst Case O(log(n)) N being just our top 100 elements, most cases O(1) only when a previous node needs to be removed will it be O(log(n))
+    
+    Moving to the next pointer (moveNextSquare): Worst Case O(log(n)) N being just our top 100 elements, though in cases where its only element in the bucket it'll be O(1)
+    
+    
+### What would you do differently if you had more time?
+Another thing I thought of adding if this was a real world scenario is you could use multiple channels, (my mention of  concurrency). With the base problem being, If you push elements randomly into the channel it'll be hard to know whats the "top 100" because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100. 
+But what I would do is divide the IpAddresses into sets
+So Example 
+Ip "00.00.00" to "22.22.22" would go to channel 1
+Ip "22.22.22" to "44.44.44" would go to channel 2
+Ip "44.44.44" to "66.66.66" would go to channel 3
+
+And then when top 100 is called you call all Top 100 Elements from channel 1, 2 and 3. Sort them, grab the top 100 of the channels and then return back to each channel a new minimum value of Top 100. This new minimum value would inevitably also speed up each channel because now you would only need to insertions relative to the most recent real top 100, vs before the top 100 being localized to the channel.
+
+![Img](https://www.researchgate.net/publication/344834843/figure/fig1/AS:1021716486705153@1620607601683/Perceptron-neuron-with-three-input-variables-and-a-single-output-0-or-1-The-inputs-are.png)
+
+What other approaches did you decide not to pursue?
+My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O(1) runtime for everything but has really bad space complexity. It has a space complexity relative to the highest IpCount(in top 100) - min IpCount (in top 100). 
+I thought generally the space complexity could get problematic. Say a single user was making a huge number of requests or intentionally messing with the system it might create a space complexity of maybe 1 Million or something over the day.
+Additionally, my other solution (this one) is O(1) pretty much all the time and O(log(n)) but with only 100 items O(10) isn't that big of a deal in my opinion. 
+
+
