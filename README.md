@@ -28,6 +28,7 @@ Python3 TextFilterCreation.py
 Note: top100() is randomly generated and thrown in with the inputs
 
 Additionally you can add in specific values/different max ip values by manipulating the request handle string
+within TextFilterCreation.py
 ```py
 knownipOne = 'request_handle("10.20.40.60")'
 knownipTwo = 'request_handle("5.10.15.20")'
