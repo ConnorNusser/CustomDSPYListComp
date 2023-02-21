@@ -3,7 +3,7 @@
 
 ## How to Run
 
-
+Make a folder and then do:
 ```js
 git clone https://github.com/ConnorNusser/withPulleyProj.git
 ```
