@@ -5,13 +5,7 @@
 
 
 ```js
-const sizeLimit = require('size-limit')
-const filePlugin = require('@size-limit/file')
-const webpackPlugin = require('@size-limit/webpack')
-
-sizeLimit([filePlugin, webpackPlugin], [filePath]).then(result => {
-  result //=> { size: 12480 }
-})
+git clone https://github.com/ConnorNusser/withPulleyProj.git
 ```
 
 ## How It Works
