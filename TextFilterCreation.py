@@ -1,6 +1,7 @@
 import random
 import time
 import csv 
+import os
 ipSet = set()
 ipArr = []
 start_time = time.time()
@@ -37,7 +38,9 @@ for i in range(90):
     endArr.append(knownipThree)
 random.shuffle(endArr)
 
-    
+file = 'txtFile.csv'
+if(os.path.exists(file) and os.path.isfile(file)):
+  os.remove(file)
     
 with open("txtFile.csv", mode="w") as file:
 
