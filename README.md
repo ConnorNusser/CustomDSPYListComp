@@ -11,8 +11,8 @@ git clone https://github.com/ConnorNusser/CustomDSPYListComp.git
 
 ### To Run Main Function
 ```js
-cd withPulleyProj
-Python3 withPulley.py
+cd CustomDSPYListComp
+Python3 customDs.py
 ```
 First method to generate requests is within 
 ```py
@@ -25,7 +25,7 @@ The better option though is:
 
 ### To Generate a massive list of randomly constructed ips
 ```py
-Python3 TextFilterCreation.py
+Python3 textFilterCreation.py
 ```
 Note: top100() is randomly generated and thrown in with the inputs
 
