@@ -1,10 +1,10 @@
-# WithPulley Ip Address Mapping Project
+# CustomDSPYListComp Concept
 
 
 ## How to Run
 
 ```js
-git clone https://github.com/ConnorNusser/withPulleyProj.git
+git clone https://github.com/ConnorNusser/CustomDSPYListComp.git
 ```
 
 ### To Run Main Function
