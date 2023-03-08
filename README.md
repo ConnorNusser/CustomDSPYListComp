@@ -67,19 +67,6 @@ The primary components of our system are the following:
 General Concept:
 We have an array that stores all of our Top 100 Ips. First, It just fills the array with the top 100 Ips. Afterward, when a new IpRequest comes through it checks whether the Ip Exists within our array. If it doesn't exist within our array or meet a minimum value, it continues. If it does exist. It updates its location in the Array in O(1) time. The reason is we have the stored IpBucketObject. Note: The reason for not just using an index, for example, is if (insertions occur or deletions occur) the index will not necessarily correspond to the right element (you can use an index offset which I have for another iteration but it gets complicated). Our pointers are used so we can jump to the next element without needing to do an index lookup, so O(1) time. Most of the expected operations within our system will likely be jumping to the .Next means most updates will be O(1). 
 
-
-## Question Section
-
-
-
-### How would you test this to ensure it’s working correctly?
-I'd probably alter TextFilterCreation.py where it could be called with specific inputs and then get an actual return value from our Main Project.
-
-You could input certain IpHandles and the count for those IpHandles and then evalute whether the returned count is equivalent.
-Ex: Assert.True(TextFilterCreationPy("10.20.40.50, 15) == 15)
-
-What is the runtime complexity of each function?
-
 ### Top100()
 
 Runtime complexity: O(N) N being just our top 100 elements.
@@ -107,7 +94,7 @@ request_handled is comprised of essentially four functions.
     though in cases where its only element in the bucket it'll be O(1)
     
     
-### What would you do differently if you had more time?
+### Extra Development
 Another thing I thought of adding if this was integrated into a live system is you could use multiple channels, (my mention of  concurrency). The base problem is, if you push elements randomly into the channel it'll be hard to know what the "top 100" is because, maybe a set of ips got "unlucky", and all got separated so it may not look like a potential top 100.
 
 But what I would do is divide the IpAddresses into sets using the modulo of the channel number so example
@@ -131,7 +118,7 @@ Sort them, grab the top 100 of the channels and then return back to each channel
 
 This new minimum value would inevitably also speed up each channel because now you would only need to  do insertions relative to the most recent real top 100, vs before the top 100 being localized to the channel.
 
-What other approaches did you decide not to pursue?
+Other approaches
 My other approach which is here: https://github.com/ConnorNusser/ListAtmpt has O(1) runtime for everything but has really bad space complexity. It has a space complexity relative to the highest IpCount(in top 100) - min IpCount (in top 100). 
 I thought generally the space complexity could get problematic. Say a single user was making a huge number of requests or intentionally messing with the system it might create a space complexity of maybe 1 Million or something over the day.
 Additionally, my other solution (this one) is O(1) pretty much all the time and O(log2(n)) with 100 items a runtime of 6-7 times worst than O(1) doesn't seem too terrible. 
