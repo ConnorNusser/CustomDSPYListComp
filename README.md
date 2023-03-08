@@ -1,5 +1,7 @@
 # CustomDSPYListComp Concept
 
+### Idea
+A custom scalable data structure used for identifying TOPX elements. 
 
 ## How to Run
 
